@@ -1,0 +1,66 @@
+<!--
+        public id: number,
+        public name: string,
+        public base_experience: number,
+        public height: number ,
+        public weight: number,
+        public types: string[]
+-->
+<br>
+
+<mat-list>
+  <h2>Editando {{pokEdit.name}}</h2>
+
+  <mat-list-item>
+    <label>ID:
+      <input [(ngModel)]="pokEdit.id" type="text" placeholder="ID" required>
+    </label>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <label>Nombre:
+      <input id="name" name="name" class="form-control" required minlength="3" #name="ngModel"
+        [(ngModel)]="pokEdit.name" type="text" placeholder="Nombre">
+    </label>
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+
+      <div class="error" *ngIf="name.errors.required">
+        El nombre es obligatorio
+      </div>
+      <div class="error" *ngIf="name.errors.minlength">
+        El nombre debe tener al menos 3 caracteres
+      </div>
+    </div>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <label>base_experience:
+      <input class="form-control" [(ngModel)]="pokEdit.base_experience" type="text" placeholder="base_experience"
+        required>
+    </label>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <label>height:
+      <input class="form-control" [(ngModel)]="pokEdit.height" type="number" placeholder="" required>
+    </label>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <label>weight:
+      <input [(ngModel)]="pokEdit.weight" id="weight" name="weight" type="number" placeholder="" required>
+    </label>
+
+  </mat-list-item>
+
+
+</mat-list>

@@ -1,0 +1,12 @@
+<h2>Lista de naves</h2>
+
+
+<mat-list role="list" class="click">
+  <mat-list-item [appResaltarNombre] class="listado" role="listitem" *ngFor="let nave of naves" (click)="onSelect(nave)" [class.select]="nave == selectedNave">
+    {{nave.name}}
+
+    <button mat-stroked-button type="button" color="warn" (click)="onDelete(nave)">Eliminar</button>
+  </mat-list-item>
+  
+  
+</mat-list>

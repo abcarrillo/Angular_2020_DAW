@@ -1,0 +1,19 @@
+<img src="assets/images/giphy.gif" alt="logo Pokemon">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-sm-9">
+      <app-naves-list #lista></app-naves-list>
+    </div>
+    <div class="col-12 col-sm-3">
+      <app-naves-details *ngIf="lista.selectedNave" [nave]="lista.selectedNave"></app-naves-details>
+      <br>
+      <hr>
+      <br>
+      <app-naves-edit *ngIf="lista.editNave" [editNave]="lista.editNave"></app-naves-edit>
+      <br>
+      <hr>
+      <br>
+      <app-naves-new (newNave)="lista.onAdd($event)"></app-naves-new>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<h2>Lista de pokemons</h2>
+
+<!--
+<ul>
+    <li *ngFor="let pok of pokemons">
+    <span 
+        class="lista"
+        [class.select]="pok == selectedPokemon"
+        (click)="onSelect(pok)">
+        id: {{pok.id}}, name: {{pok.name}}, level: {{pok.level}}, HP: {{pok.hp}}
+    </span> &nbsp;
+    <span 
+        class="lista"
+        (click)="onEdit(pok)">edit
+    </span> &nbsp;
+    <span 
+        class="lista"
+        (click)="onDelete(pok)">delete
+    </span>
+    </li>
+</ul>
+-->
+<div class="row">
+  <div class="col col-md-6 col-lg-4 col-xl-6 centro" *ngFor="let pok of pokemons">
+    <mat-card class="pokemons-card " [class.select]="pok == selectedPokemon">
+      <div class="pokemons-selectable" (click)="onSelect(pok)">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title><span class="lista">{{ pok.name }}</span></mat-card-title>
+          <mat-card-subtitle>ID: {{ pok.id }}</mat-card-subtitle>
+        </mat-card-header>
+        <!--
+          <img mat-card-image src="" alt="Photo of {{pok.name}}">
+        -->
+        <mat-card-content>
+          Experiencia base: {{ pok.base_experience }}<br />
+          Altura: {{ pok.height }}<br />
+          Peso: {{ pok.weight}} <br>
+          Sexo: {{ pok.gender }} <br>
+          Tipos: <br>
+          <ul>
+            <li *ngFor="let tipos of pok.types">
+              {{ tipos.type.name | json }}
+            </li>
+          </ul>
+          <br>
+        </mat-card-content>
+      </div>
+      <mat-card-actions style="text-align:center">
+        <button mat-raised-button type="button" color="primary" (click)="onEdit(pok)">Editar</button>
+        <button mat-stroked-button type="button" color="warn" (click)="onDelete(pok)">Eliminar</button>
+        <a mat-stroked-button routerLink="raw/{{ pok.id }}">Raw</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+
+<!-- Esto es cuando es un componente dependiente -->
+<!-- app-pokemons-details [pokInput]="selectedPokemon"></app-pokemons-details> -->

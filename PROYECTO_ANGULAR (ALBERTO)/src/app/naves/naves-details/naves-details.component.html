@@ -1,0 +1,44 @@
+<ng-container *ngIf="nave; then existe; else noexiste">
+</ng-container>
+
+<!--
+    public name: string,
+    public model: string,
+    public manufacturer: string,
+    public cost_in_credits: string,
+    public length: string,
+    public starship_class: string,
+    public max_atmosphering_speed: string
+-->
+
+<ng-template #existe>
+  <h2>Detalles de {{nave.name}}</h2>
+  <ul class="detalles" style="list-style-type:none;">
+    <li>
+      <strong>name:</strong> {{nave.name}}
+    </li>
+    <li>
+      <strong>model:</strong> {{nave.model}}
+    </li>
+    <li>
+      <strong>manufacturer:</strong> {{nave.manufacturer}}
+    </li>
+    <li>
+      <strong>cost_in_credits:</strong> {{nave.cost_in_credits}}
+    </li>
+    <li>
+      <strong>length:</strong> {{nave.length | formateoNumeros : 2 }}
+    </li>
+    <li>
+      <strong>starship_class:</strong> {{nave.starship_class}}
+    </li>
+    <li>
+      <strong>max_atmosphering_speed:</strong> {{nave.max_atmosphering_speed}}
+    </li>
+  </ul>
+
+</ng-template>
+
+<ng-template #noexiste>
+  Por favor, elija una nave de la lista
+</ng-template>

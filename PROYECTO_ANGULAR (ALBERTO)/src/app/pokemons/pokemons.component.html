@@ -1,0 +1,19 @@
+<img src="assets/images/pokemon-gif.gif" alt="logo Pokemon">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-sm-9">
+      <app-pokemons-list #lista></app-pokemons-list>
+    </div>
+    <div class="col-12 col-sm-3">
+      <app-pokemons-details *ngIf="lista.selectedPokemon" [pokInput]="lista.selectedPokemon"></app-pokemons-details> <br>
+      <hr>
+      <app-pokemons-edit *ngIf="lista.editPokemon" [pokEdit]="lista.editPokemon"></app-pokemons-edit>
+      <br>
+      <hr>
+      <app-pokemons-new (newPok)="lista.onAdd($event)"></app-pokemons-new>
+
+
+
+    </div>
+  </div>
+</div>

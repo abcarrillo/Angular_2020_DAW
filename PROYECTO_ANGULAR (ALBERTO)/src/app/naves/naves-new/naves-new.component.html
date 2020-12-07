@@ -1,0 +1,83 @@
+<h2>Creando una nueva Nave</h2>
+
+<!--
+        public name: string,
+        public model: string,
+        public manufacturer: string,
+        public cost_in_credits: string,
+        public length: number,
+        public starship_class: string,
+        public max_atmosphering_speed: string
+-->
+
+
+
+
+
+
+<form [formGroup]="newNaveForm" (ngSubmit)="onSubmit()">
+
+  <mat-list>
+
+    <mat-list-item>
+      <label>name:
+        <input type="text" formControlName="name"
+          [style.backgroundColor]="newNaveForm.controls['name'].invalid ? 'lightcoral' : 'lightgreen'"
+          [class.error]="newNaveForm.controls['name'].invalid && (newNaveForm.controls['name'].dirty || newNaveForm.controls['name'].touched)"
+          [class.ok]="newNaveForm.controls['name'].valid">
+      </label> </mat-list-item>
+
+    <mat-list-item> <label>model:
+        <input type="text" formControlName="model"
+          [ngStyle]="{backgroundColor: newNaveForm.controls['model'].invalid ? 'lightcoral' : 'lightgreen' }" [ngClass]="{'error': newNaveForm.controls['model'].invalid, 
+      'ok': newNaveForm.controls['model'].valid}">
+      </label> </mat-list-item>
+
+    <mat-list-item>
+      <label>manufacturer:
+        <input type="text" formControlName="manufacturer"
+          [ngStyle]="{backgroundColor: newNaveForm.controls['manufacturer'].invalid ? 'lightcoral' : 'lightgreen' }"
+          [ngClass]="{'error': newNaveForm.controls['manufacturer'].invalid, 
+      'ok': newNaveForm.controls['manufacturer'].valid}">
+      </label>
+    </mat-list-item>
+    <mat-list-item>
+      <label>cost_in_credits:
+        <input type="text" formControlName="cost_in_credits"
+          [ngStyle]="{backgroundColor: newNaveForm.controls['cost_in_credits'].invalid ? 'lightcoral' : 'lightgreen' }"
+          [ngClass]="{'error': newNaveForm.controls['cost_in_credits'].invalid, 
+        'ok': newNaveForm.controls['cost_in_credits'].valid}">
+      </label>
+    </mat-list-item>
+
+    <mat-list-item>
+      <label>length:
+        <input type="number" formControlName="length"
+          [ngStyle]="{backgroundColor: newNaveForm.controls['length'].invalid ? 'lightcoral' : 'lightgreen' }"
+          [ngClass]="{'error': newNaveForm.controls['length'].invalid, 
+            'ok': newNaveForm.controls['length'].valid}">
+      </label>
+    </mat-list-item>
+
+    <mat-list-item>
+      <label>starship_class:
+        <input type="text" formControlName="starship_class"
+          [ngStyle]="{backgroundColor: newNaveForm.controls['starship_class'].invalid ? 'lightcoral' : 'lightgreen' }"
+          [ngClass]="{'error': newNaveForm.controls['starship_class'].invalid, 
+            'ok': newNaveForm.controls['starship_class'].valid}">
+      </label>
+    </mat-list-item>
+
+    <mat-list-item>
+      <label>max_atmosphering_speed:
+        <input type="text" formControlName="max_atmosphering_speed"
+          [ngStyle]="{backgroundColor: newNaveForm.controls['max_atmosphering_speed'].invalid ? 'lightcoral' : 'lightgreen' }"
+          [ngClass]="{'error': newNaveForm.controls['max_atmosphering_speed'].invalid, 
+            'ok': newNaveForm.controls['max_atmosphering_speed'].valid}">
+      </label>
+    </mat-list-item>
+
+    <mat-list-item>
+      <button mat-raised-button color="primary" type="submit" [disabled]="newNaveForm.invalid">Guardar</button>
+    </mat-list-item>
+  </mat-list>

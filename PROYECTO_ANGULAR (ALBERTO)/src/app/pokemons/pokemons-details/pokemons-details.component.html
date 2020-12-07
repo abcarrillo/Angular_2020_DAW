@@ -1,0 +1,34 @@
+<ng-container *ngIf="pokInput; then existe; else noexiste">
+</ng-container>
+
+<!--
+        public id: number,
+        public name: string,
+        public base_experience: number,
+        public height: number ,
+        public weight: number,
+        public types: string[]
+-->
+
+
+<ng-template #existe>
+  <h2>Detalles de {{ pokInput!.name }}</h2>
+  <ul class="detalles" style="list-style-type:none;">
+    <li><strong>ID:</strong> {{ pokInput!.id }}</li>
+    <li><strong>name:</strong> {{ pokInput!.name }}</li>
+    <li><strong>base_experience:</strong> {{ pokInput!.base_experience }}</li>
+    <li><strong>height:</strong> {{ pokInput!.height }}</li>
+    <li> <strong>weight:</strong>  {{ pokInput!.weight }}</li>
+    <li> <strong>sex:</strong> {{ pokInput.gender}}</li>
+    <li> <strong> types:</strong></li>
+    <ul>
+      <li *ngFor="let tipos of pokInput.types">
+        {{ tipos.type.name | json }}
+      </li>
+    </ul>
+  </ul>
+</ng-template>
+
+<ng-template #noexiste>
+  Por favor, elija un pokemon de la lista
+</ng-template>

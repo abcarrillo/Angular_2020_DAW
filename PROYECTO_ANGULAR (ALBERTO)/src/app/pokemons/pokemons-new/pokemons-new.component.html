@@ -1,0 +1,86 @@
+<h2>Creando un nuevo Pokemon</h2>
+
+<!--
+        public id: number,
+        public name: string,
+        public base_experience: number,
+        public height: number ,
+        public weight: number,
+        public types: string[]
+-->
+
+
+
+
+
+
+<form [formGroup]="newPokForm" (ngSubmit)="onSubmit()">
+
+  <mat-list>
+    <mat-list-item>
+      <label>ID:
+        <input type="number" formControlName="id">
+      </label>
+    </mat-list-item>
+
+    <mat-list-item>
+      <label>name:
+        <input type="text" formControlName="name"
+          [style.backgroundColor]="newPokForm.controls['name'].invalid ? 'lightcoral' : 'lightgreen'"
+          [class.error]="newPokForm.controls['name'].invalid && (newPokForm.controls['name'].dirty || newPokForm.controls['name'].touched)"
+          [class.ok]="newPokForm.controls['name'].valid">
+      </label> </mat-list-item>
+
+    <mat-list-item> <label>base_experience:
+        <input type="number" formControlName="base_experience"
+          [ngStyle]="{backgroundColor: newPokForm.controls['base_experience'].invalid ? 'lightcoral' : 'lightgreen' }"
+          [ngClass]="{'error': newPokForm.controls['base_experience'].invalid, 
+      'ok': newPokForm.controls['base_experience'].valid}">
+      </label> </mat-list-item>
+
+    <mat-list-item>
+      <label>height:
+        <input type="number" formControlName="height"
+          [ngStyle]="{backgroundColor: newPokForm.controls['height'].invalid ? 'lightcoral' : 'lightgreen' }" [ngClass]="{'error': newPokForm.controls['height'].invalid, 
+      'ok': newPokForm.controls['height'].valid}">
+      </label>
+    </mat-list-item>
+    <mat-list-item>
+      <label>weight:
+        <input type="number" formControlName="weight"
+          [ngStyle]="{backgroundColor: newPokForm.controls['weight'].invalid ? 'lightcoral' : 'lightgreen' }" [ngClass]="{'error': newPokForm.controls['weight'].invalid, 
+        'ok': newPokForm.controls['weight'].valid}">
+      </label>
+    </mat-list-item>
+
+    <mat-list-item>
+      <mat-radio-group class="radios" aria-label="Select an option" formControlName="gender"
+        [ngStyle]="{backgroundColor: newPokForm.controls['gender'].invalid ? 'lightcoral' : 'lightgreen' }" [ngClass]="{'error': newPokForm.controls['gender'].invalid, 
+  'ok': newPokForm.controls['gender'].valid}">
+        <mat-radio-button value="male">Male</mat-radio-button> <br>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+    </mat-list-item>
+
+    <mat-list-item>
+      <button mat-raised-button color="primary" type="submit" [disabled]="newPokForm.invalid">Guardar</button>
+    </mat-list-item>
+  </mat-list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>

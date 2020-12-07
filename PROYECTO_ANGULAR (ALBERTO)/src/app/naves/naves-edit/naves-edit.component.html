@@ -1,0 +1,72 @@
+
+<!--
+        public name: string,
+        public model: string,
+        public manufacturer: string,
+        public cost_in_credits: string,
+        public length: string,
+        public starship_class: string,
+        public max_atmosphering_speed: string
+-->
+
+<div class="">
+
+  <mat-list >
+    <h2>Editando {{editNave.name}}</h2>
+    <mat-list-item>
+      <label>name:
+        <input class="form-control " required minlength="3" #name="ngModel" [(ngModel)]="editNave.name" type="text"
+          placeholder="Nombre">
+      </label>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      <label>model:
+        <input class="form-control" [(ngModel)]="editNave.model" type="text" placeholder="base_experience" required>
+      </label>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      <label>manufacturer:
+        <textarea rows="2" cols="24" class="form-control" [(ngModel)]="editNave.manufacturer" required>
+        </textarea>
+      </label>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      <label>cost_in_credits:
+        <input [(ngModel)]="editNave.cost_in_credits" type="text" placeholder="" required>
+      </label>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      length: <mat-slider [(ngModel)]="editNave.length" min="0" max="125000" step="2" thumbLabel></mat-slider>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      <label>starship_class:
+        <input [(ngModel)]="editNave.starship_class" type="text" placeholder="" required>
+      </label>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      <label>max_atmosphering_speed:
+        <input [(ngModel)]="editNave.max_atmosphering_speed" type="text" placeholder="" required>
+      </label>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<br />
